@@ -42,3 +42,23 @@
       - 15672:15672
       - 5672:5672
 ```
+
+<h2>Caso queira mudar as credencias do RabbitMQ:</h2>
+
+```
+version: "3.6"
+
+services:
+    rabbitmq:
+        image: rabbitmq:3.10-management
+        container_name: rabbitmq
+        restart: always
+        ports:
+            - 5672:5672
+            - 15672:15672
+        volumes:
+            - ./dados:/var/lib/rabbitmq/
+        environment:
+            - RABBITMQ_DEFAULT_USER=iago
+            - RABBITMQ_DEFAULT_PASS=123
+```
